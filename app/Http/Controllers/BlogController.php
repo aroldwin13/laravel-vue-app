@@ -8,16 +8,20 @@ use Inertia\Inertia;
 
 class BlogController extends Controller
 {
+    public function show()
+    {
+        return Inertia::render('Blog');    
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $blogs = Blog::all();
 
-        return Inertia::render('Topic', [
+        return Inertia::render('Blog', [
             'blogs' => $blogs
         ]);
     }

@@ -35,10 +35,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/about', [aboutController::class, 'show'])->middleware(['auth', 'verified'])->name('about');
 
-Route::get('/topic', [TopicController::class, 'show'])->middleware(['auth', 'verified'])->name('topic');
+Route::get('/topic', [BlogController::class, 'index'])->middleware(['auth', 'verified'])->name('topic');
 Route::post('/store-blogs', [BlogController::class, 'store'])->middleware(['auth', 'verified'])->name('blogs.store');
-Route::post('/edit-blogs', [BlogCOntroller::class, 'edit'])->middleware(['auth', 'verified'])->name('blogs.edit');
-Route::post('/update-blogs', [BlogCOntroller::class, 'update'])->middleware(['auth', 'verified'])->name('blogs.update');
+Route::post('/edit-blogs', [BlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('blogs.edit');
+Route::post('/update-blogs', [BlogController::class, 'update'])->middleware(['auth', 'verified'])->name('blogs.update');
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
